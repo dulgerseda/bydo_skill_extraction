@@ -7,34 +7,6 @@ INPUT_PATH = Path("answers/answers.json")
 OUTPUT_PATH = Path("answers/normalized_answers.json")
 
 
-ACTION_KEYWORDS = [
-    "develop",
-    "build",
-    "implement",
-    "apply",
-    "optimize",
-    "process",
-    "analyze",
-    "analyse",
-    "detect",
-    "monitor",
-    "design",
-    "deploy",
-    "evaluate",
-    "filter",
-    "handle",
-    "manage",
-    "estimate",
-    "investigate",
-    "create",
-    "validate",
-    "visualise",
-    "visualize",
-    "communicate",
-    "collaborate",
-]
-
-
 def normalize_skill_type(skill: dict) -> str:
     """
     Safely normalizes skill categories without losing metadata like 'gap'.

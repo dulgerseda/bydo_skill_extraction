@@ -6,6 +6,8 @@ import tempfile
 import os
 from collections import Counter
 import pandas as pd
+import graphviz
+import plotly.express as px
 
 st.set_page_config(page_title="BYDO · Skill Extraction Pipeline", page_icon="🔬", layout="wide")
 
@@ -160,7 +162,6 @@ with tab_graph:
 
     st.components.v1.html(html, height=560, scrolling=False)
 
-    # Legend
     st.markdown("""
     <div style='display:flex;gap:20px;align-items:center;margin:8px 0 16px;flex-wrap:wrap;font-size:12px;color:#666;'>
       <span style='display:flex;align-items:center;gap:5px;'><span style='width:12px;height:12px;border-radius:50%;border:2px solid #7F77DD;background:#111;display:inline-block'></span>Skill</span>
@@ -174,40 +175,77 @@ with tab_graph:
     # ── 3 EXPANDERS ──
     st.markdown("<br>", unsafe_allow_html=True)
 
-    with st.expander("📚  What should I teach in this field?  · View 1 · Domain"):
-        st.markdown("<p class='view-label'>Skill map of the field — grouped by domain</p>", unsafe_allow_html=True)
-        domains = {}
-        for s in selected_skills:
-            d = s.get("domain", "Unknown")
-            domains.setdefault(d, []).append(s["noun"])
-        df_domain = pd.DataFrame([
-            {"Domain": d, "Skills": len(nouns)}
-            for d, nouns in sorted(domains.items(), key=lambda x: -len(x[1]))
-        ])
-        st.bar_chart(df_domain.set_index("Domain"), color="#7EC8E3", height=240)
-        for domain_name, nouns in sorted(domains.items(), key=lambda x: -len(x[1])):
-            st.markdown(f"<span style='color:#7EC8E3;font-family:IBM Plex Mono;font-size:11px'>{domain_name}</span>  " + "  ".join([f"`{n}`" for n in nouns]), unsafe_allow_html=True)
+    domains = {}
+    for s in selected_skills:
+        d = s.get("domain", "Unknown")
+        domains.setdefault(d, []).append(s["noun"])
 
-    with st.expander("🎯  What should I learn at most?  · View 2 · Type"):
+    main_domain = max(domains, key=lambda d: len(domains[d]))
+
+    with st.expander(f"What should I teach in {main_domain}? · View 1 · Domain"):
+        st.markdown("<p class='view-label'>Most requested skills across all job ads</p>", unsafe_allow_html=True)
+
+        ds_skill_counts = Counter()
+        for jd in data.values():
+            for s in get_skills(jd):
+                if s.get("domain") == main_domain:
+                    ds_skill_counts[s["noun"]] += 1
+
+        top_skills = ds_skill_counts.most_common(5)
+
+        g = graphviz.Digraph()
+        g.attr(rankdir="TB", bgcolor="transparent")
+        g.node(main_domain,
+            style="filled,rounded", fillcolor="#ddd6fe",
+            color="#7c3aed", fontcolor="#3b0764",
+            fontname="IBM Plex Mono", shape="box")
+
+        for skill, count in top_skills:
+            g.node(skill,
+                label=f"{skill}\n({count} ads)",
+                style="filled,rounded", fillcolor="#bbf7d0",
+                color="#15803d", fontcolor="#14532d",
+                fontname="IBM Plex Mono", shape="box")
+            g.edge(main_domain, skill, color="#a78bfa")
+
+        st.graphviz_chart(g, use_container_width=True)
+
+    with st.expander("What should I learn at most?  · View 2 · Type"):
         st.markdown("<p class='view-label'>Which tools does the market demand most? — job-ad frequency</p>", unsafe_allow_html=True)
+
         tool_counts = Counter()
         for jd in data.values():
             for s in get_skills(jd):
                 if s.get("skill_type") == "Tool":
                     tool_counts[s["noun"]] += 1
-        df_tools = pd.DataFrame([
-            {"Skill": k, "Job ads": v}
-            for k, v in tool_counts.most_common(12)
-        ])
-        st.bar_chart(df_tools.set_index("Skill"), color="#D85A30", height=280)
-        for noun, count in tool_counts.most_common(5):
-            skill_obj = next((s for jd in data.values() for s in get_skills(jd) if s["noun"]==noun), None)
-            if skill_obj:
-                decision = skill_obj.get("decision","—")
-                esco_lbl = {"accept":"exact","review":"close","emerging":"new"}.get(decision,"—")
-                st.markdown(f"`{noun}` ({count} ads) → ESCO: **{esco_lbl}**")
 
-    with st.expander("🔍  Where does a skill appear?  · View 3 · Concept"):
+        top_tools = tool_counts.most_common(5)
+        df_tools = pd.DataFrame(top_tools, columns=["Skill", "Job ads"])
+        df_tools = df_tools.sort_values("Job ads", ascending=True)
+
+        fig = px.bar(df_tools, x="Job ads", y="Skill", orientation="h",
+        color="Job ads", color_continuous_scale=["#f4c4b0", "#D85A30"])
+        
+        fig.update_traces(
+            marker_line_width=0,
+            marker_cornerradius=6,
+        )
+
+        fig.update_layout(
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            font_color="#cccccc",
+            coloraxis_showscale=False,
+            margin=dict(l=0, r=0, t=0, b=0),
+            height=220,
+            yaxis_title=None,
+            xaxis_title=None,
+        )
+
+        st.plotly_chart(fig, use_container_width=True)
+
+
+    with st.expander("Where does a skill appear?  · View 3 · Concept"):
         st.markdown("<p class='view-label'>Select a skill to see its profile</p>", unsafe_allow_html=True)
         concept = st.selectbox("Skill", [s["noun"] for s in selected_skills], key="concept_sel")
         skill_obj = next((s for s in selected_skills if s["noun"] == concept), None)
@@ -228,7 +266,7 @@ with tab_graph:
             else:
                 st.markdown(f"**ESCO:** no match → **emerging skill** (conf: `{conf}`)")
 
-    # ── SKILL TABLE — st.dataframe with sort ──
+    # ── SKILL TABLE ──
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("<div class='section-header'>Skill table — click column headers to sort</div>", unsafe_allow_html=True)
 
