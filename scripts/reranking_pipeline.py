@@ -56,7 +56,7 @@ def rerank(term, esco_form, candidates, esco_data, cross_encoder):
     return reranked
 
 def normalize_score(score):
-    """Cross-encoder raw skorunu sigmoid ile 0-1 arasına normalize et."""
+    """Cross-encoder raw skor normalised 0-1 with sigmoid"""
     return round(1 / (1 + math.exp(-score * 0.5)), 4)
 
 def make_match_type(confidence):
