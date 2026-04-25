@@ -12,6 +12,6 @@ python3 scripts/reranking_pipeline.py
 echo "🚀 Step 3: Starting Streamlit..."
 streamlit run app.py
 
-
+# source .venv/bin/activate
 # chmod +x run.sh && ./run.sh
 
