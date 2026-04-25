@@ -21,8 +21,8 @@ DATA_DIR        = Path("data/processed")
 EMBEDDINGS_PATH = DATA_DIR / "esco_embeddings.npy"
 LABELS_PATH     = DATA_DIR / "esco_labels.json"
 ESCO_JSON       = DATA_DIR / "esco_skill_dictionary.json"
-ANSWERS_PATH = Path("answers/normalized_answers.json")
-OUTPUT_PATH     = Path("results/output.json")
+ANSWERS_PATH = Path("answers/normalized_answers_v10.json")
+OUTPUT_PATH     = Path("results/output_v10.json")
 
 BI_ENCODER_MODEL    = "all-MiniLM-L6-v2"
 CROSS_ENCODER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"

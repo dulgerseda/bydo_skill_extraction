@@ -33,7 +33,8 @@ h1, h2, h3 { font-family: 'IBM Plex Mono', monospace; color: #ffffff; }
 </style>
 """, unsafe_allow_html=True)
 
-OUTPUT_PATH = Path("results/output.json")
+
+OUTPUT_PATH = Path("results/output_v10.json")
 
 @st.cache_data
 def load_output():

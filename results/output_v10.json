@@ -12,7 +12,11 @@
         "tool": null,
         "action": null,
         "source": "Join us as a Data Scientist with a solid background on time-series analysis for health monitoring applications and be a part of reshaping structural maintenance through innovative data-driven solutions.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.4536,
+        "decision": "emerging"
       },
       {
         "noun": "Data Driven Structural Assessment",
@@ -24,7 +28,11 @@
         "tool": null,
         "action": null,
         "source": "Your expertise will drive data-driven structural assessment and contribute to the evolution of Irmos Technologies in our dynamic startup environment.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.4233,
+        "decision": "emerging"
       },
       {
         "noun": "Automated Feature Extraction",
@@ -36,7 +44,11 @@
         "tool": null,
         "action": null,
         "source": "Develop and refine algorithms for automated feature extraction and anomaly detection from high-frequency time-series data.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.0963,
+        "decision": "emerging"
       },
       {
         "noun": "Anomaly Detection",
@@ -48,7 +60,11 @@
         "tool": null,
         "action": null,
         "source": "Develop and refine algorithms for automated feature extraction and anomaly detection from high-frequency time-series data.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.1147,
+        "decision": "emerging"
       },
       {
         "noun": "Predictive Modeling",
@@ -60,7 +76,11 @@
         "tool": null,
         "action": null,
         "source": "Build predictive models to estimate the remaining useful life of structures and detect early-stage structural degradation.",
-        "gap": false
+        "gap": false,
+        "esco_match": "develop predictive models",
+        "match_type": "exactMatch",
+        "confidence": 0.9871,
+        "decision": "accept"
       },
       {
         "noun": "Remaining Useful Life Estimation",
@@ -72,7 +92,11 @@
         "tool": null,
         "action": null,
         "source": "Build predictive models to estimate the remaining useful life of structures and detect early-stage structural degradation.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.0048,
+        "decision": "emerging"
       },
       {
         "noun": "Structural Degradation Detection",
@@ -84,7 +108,11 @@
         "tool": null,
         "action": null,
         "source": "Build predictive models to estimate the remaining useful life of structures and detect early-stage structural degradation.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.2147,
+        "decision": "emerging"
       },
       {
         "noun": "Noise Filtering",
@@ -96,7 +124,11 @@
         "tool": null,
         "action": null,
         "source": "Engineer robust anomaly detection algorithms to filter noise and handle non-stationary environmental effects in real-world sensor data.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.3036,
+        "decision": "emerging"
       },
       {
         "noun": "Non Stationary Data Handling",
@@ -108,7 +140,11 @@
         "tool": null,
         "action": null,
         "source": "Engineer robust anomaly detection algorithms to filter noise and handle non-stationary environmental effects in real-world sensor data.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.0911,
+        "decision": "emerging"
       },
       {
         "noun": "Data Validation & Quality",
@@ -120,7 +156,11 @@
         "tool": null,
         "action": null,
         "source": "Implement automated data validation and quality layers to identify sensor malfunctions, drifts, or data gaps before they reach the analytical models.",
-        "gap": false
+        "gap": false,
+        "esco_match": "implement data quality processes",
+        "match_type": "exactMatch",
+        "confidence": 0.9913,
+        "decision": "accept"
       },
       {
         "noun": "Sensor Fault Detection",
@@ -132,7 +172,11 @@
         "tool": null,
         "action": null,
         "source": "Implement automated data validation and quality layers to identify sensor malfunctions, drifts, or data gaps before they reach the analytical models.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.3986,
+        "decision": "emerging"
       },
       {
         "noun": "Cross Functional Collaboration",
@@ -144,7 +188,11 @@
         "tool": null,
         "action": null,
         "source": "Collaborate with Structural Engineers to 'close the loop' between data-driven insights and physical inspections/rehabilitation strategies.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.3783,
+        "decision": "emerging"
       },
       {
         "noun": "Data Visualization",
@@ -156,7 +204,11 @@
         "tool": null,
         "action": null,
         "source": "Visualise complex health metrics to provide clear, data-driven insights for stakeholders and decision-makers.",
-        "gap": false
+        "gap": false,
+        "esco_match": "data visualisation software",
+        "match_type": "exactMatch",
+        "confidence": 0.9866,
+        "decision": "accept"
       },
       {
         "noun": "Python Programming",
@@ -168,7 +220,11 @@
         "tool": null,
         "action": null,
         "source": "Deep proficiency in Python and the scientific stack (NumPy, SciPy, Pandas, Scikit-learn, PyTorch/TensorFlow).",
-        "gap": false
+        "gap": false,
+        "esco_match": "Python (computer programming)",
+        "match_type": "exactMatch",
+        "confidence": 0.9837,
+        "decision": "accept"
       },
       {
         "noun": "NumPy SciPy Pandas",
@@ -180,7 +236,11 @@
         "tool": null,
         "action": null,
         "source": "Deep proficiency in Python and the scientific stack (NumPy, SciPy, Pandas, Scikit-learn, PyTorch/TensorFlow).",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.0035,
+        "decision": "emerging"
       },
       {
         "noun": "Scikit Learn PyTorch TensorFlow",
@@ -192,7 +252,11 @@
         "tool": null,
         "action": null,
         "source": "Deep proficiency in Python and the scientific stack (NumPy, SciPy, Pandas, Scikit-learn, PyTorch/TensorFlow).",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.023,
+        "decision": "emerging"
       },
       {
         "noun": "Signal Processing",
@@ -204,19 +268,27 @@
         "tool": null,
         "action": null,
         "source": "Expertise in Signal Processing (FFT, Filtering, Wavelets) and its application to time-history data.",
-        "gap": false
+        "gap": false,
+        "esco_match": "signal processing",
+        "match_type": "exactMatch",
+        "confidence": 0.9462,
+        "decision": "accept"
       },
       {
         "noun": "Structural Health Monitoring",
         "verb": "Monitor structural health",
         "esco_form": "Apply structural health monitoring methods",
         "category": "K",
-        "skill_type": "Knowledge",
+        "skill_type": "Tool",
         "domain": "Structural Health Monitoring",
         "tool": null,
         "action": null,
         "source": "Experience with SHM and predictive maintenance methodologies is a significant advantage.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.1655,
+        "decision": "emerging"
       },
       {
         "noun": "Predictive Maintenance",
@@ -228,7 +300,11 @@
         "tool": null,
         "action": null,
         "source": "Experience with SHM and predictive maintenance methodologies is a significant advantage.",
-        "gap": false
+        "gap": false,
+        "esco_match": "predictive maintenance",
+        "match_type": "exactMatch",
+        "confidence": 0.9058,
+        "decision": "accept"
       },
       {
         "noun": "SQL NoSQL Databases",
@@ -240,7 +316,11 @@
         "tool": null,
         "action": null,
         "source": "Solid understanding of SQL/NoSQL and experience working with large datasets in cloud environments.",
-        "gap": false
+        "gap": false,
+        "esco_match": "NoSQL",
+        "match_type": "exactMatch",
+        "confidence": 0.9505,
+        "decision": "accept"
       },
       {
         "noun": "Cloud Data Processing",
@@ -252,7 +332,11 @@
         "tool": null,
         "action": null,
         "source": "Solid understanding of SQL/NoSQL and experience working with large datasets in cloud environments.",
-        "gap": false
+        "gap": false,
+        "esco_match": "manage cloud data and storage",
+        "match_type": "closeMatch",
+        "confidence": 0.7516,
+        "decision": "review"
       },
       {
         "noun": "Git Version Control",
@@ -264,7 +348,11 @@
         "tool": null,
         "action": null,
         "source": "Familiarity with version control (git) and collaborative development in a CI/CD environment.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.0826,
+        "decision": "emerging"
       },
       {
         "noun": "CI CD Pipeline",
@@ -276,7 +364,11 @@
         "tool": null,
         "action": null,
         "source": "Familiarity with version control (git) and collaborative development in a CI/CD environment.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.0236,
+        "decision": "emerging"
       },
       {
         "noun": "Attention to Detail",
@@ -288,7 +380,11 @@
         "tool": null,
         "action": null,
         "source": "Independent, with meticulous attention to detail, and strong organisational skills.",
-        "gap": false
+        "gap": false,
+        "esco_match": "attend to detail regarding food and beverages",
+        "match_type": "emerging",
+        "confidence": 0.6157,
+        "decision": "review"
       },
       {
         "noun": "Organizational Skills",
@@ -300,7 +396,11 @@
         "tool": null,
         "action": null,
         "source": "Independent, with meticulous attention to detail, and strong organisational skills.",
-        "gap": false
+        "gap": false,
+        "esco_match": "apply organisational techniques",
+        "match_type": "exactMatch",
+        "confidence": 0.9804,
+        "decision": "accept"
       },
       {
         "noun": "Team Collaboration",
@@ -312,7 +412,11 @@
         "tool": null,
         "action": null,
         "source": "A collaborative team player who thrives in a dynamic and inclusive work environment.",
-        "gap": false
+        "gap": false,
+        "esco_match": "collaborate with coaching team",
+        "match_type": "exactMatch",
+        "confidence": 0.9061,
+        "decision": "accept"
       },
       {
         "noun": "English Communication",
@@ -324,7 +428,11 @@
         "tool": null,
         "action": null,
         "source": "Proficient in English, both written and verbal. Other languages are a plus.",
-        "gap": false
+        "gap": false,
+        "esco_match": "interact verbally in English",
+        "match_type": "emerging",
+        "confidence": 0.6425,
+        "decision": "review"
       }
     ]
   },
@@ -341,7 +449,11 @@
         "tool": null,
         "action": null,
         "source": "Conduct research and experiments to improve the performance of our traffic shaping algorithms and maximize performance for our customers",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.0888,
+        "decision": "emerging"
       },
       {
         "noun": "Experimental Research Design",
@@ -353,7 +465,11 @@
         "tool": null,
         "action": null,
         "source": "Conduct research and experiments to improve the performance of our traffic shaping algorithms and maximize performance for our customers",
-        "gap": false
+        "gap": false,
+        "esco_match": "gather experimental data",
+        "match_type": "closeMatch",
+        "confidence": 0.8292,
+        "decision": "accept"
       },
       {
         "noun": "Traffic Optimization Strategy Development",
@@ -365,7 +481,11 @@
         "tool": null,
         "action": null,
         "source": "Build new traffic shaping optimization strategies based on cutting edge research, build proof of concept ML models, and drive them to successful outcomes in full scale production",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.3568,
+        "decision": "emerging"
       },
       {
         "noun": "Machine Learning Model Prototyping",
@@ -377,7 +497,11 @@
         "tool": null,
         "action": null,
         "source": "Build new traffic shaping optimization strategies based on cutting edge research, build proof of concept ML models, and drive them to successful outcomes in full scale production",
-        "gap": false
+        "gap": false,
+        "esco_match": "Prototyping development",
+        "match_type": "closeMatch",
+        "confidence": 0.6702,
+        "decision": "review"
       },
       {
         "noun": "Machine Learning Production Deployment",
@@ -389,7 +513,11 @@
         "tool": null,
         "action": null,
         "source": "Build new traffic shaping optimization strategies based on cutting edge research, build proof of concept ML models, and drive them to successful outcomes in full scale production",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.373,
+        "decision": "emerging"
       },
       {
         "noun": "Cross Functional Collaboration",
@@ -401,7 +529,11 @@
         "tool": null,
         "action": null,
         "source": "Support analytics projects in partnership with Product, Engineering, and cross-functional teams to support and influence product strategies",
-        "gap": false
+        "gap": false,
+        "esco_match": "web based collaborative platforms",
+        "match_type": "closeMatch",
+        "confidence": 0.6604,
+        "decision": "review"
       },
       {
         "noun": "Analytics Project Support",
@@ -413,7 +545,11 @@
         "tool": null,
         "action": null,
         "source": "Support analytics projects in partnership with Product, Engineering, and cross-functional teams to support and influence product strategies",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.4,
+        "decision": "emerging"
       },
       {
         "noun": "Statistical Model Performance Monitoring",
@@ -425,7 +561,11 @@
         "tool": null,
         "action": null,
         "source": "Monitor and measure statistical modeling performance, and build dashboards and alerts to ensure models are functioning effectively",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.3298,
+        "decision": "emerging"
       },
       {
         "noun": "Dashboard and Alert Development",
@@ -437,7 +577,11 @@
         "tool": null,
         "action": null,
         "source": "Monitor and measure statistical modeling performance, and build dashboards and alerts to ensure models are functioning effectively",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.229,
+        "decision": "emerging"
       },
       {
         "noun": "Reusable Module Development",
@@ -449,7 +593,11 @@
         "tool": null,
         "action": null,
         "source": "Build reusable modules and data structures, and provide guidance and feedback to team members on their work, taking into account their skills, backgrounds and working styles",
-        "gap": false
+        "gap": false,
+        "esco_match": "software components libraries",
+        "match_type": "closeMatch",
+        "confidence": 0.7396,
+        "decision": "review"
       },
       {
         "noun": "Data Structure Design",
@@ -461,7 +609,11 @@
         "tool": null,
         "action": null,
         "source": "Build reusable modules and data structures, and provide guidance and feedback to team members on their work, taking into account their skills, backgrounds and working styles",
-        "gap": false
+        "gap": false,
+        "esco_match": "create database diagrams",
+        "match_type": "closeMatch",
+        "confidence": 0.6586,
+        "decision": "review"
       },
       {
         "noun": "Technical Mentoring",
@@ -473,7 +625,11 @@
         "tool": null,
         "action": null,
         "source": "Build reusable modules and data structures, and provide guidance and feedback to team members on their work, taking into account their skills, backgrounds and working styles",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.2699,
+        "decision": "emerging"
       },
       {
         "noun": "Complex Problem Solving",
@@ -485,7 +641,11 @@
         "tool": null,
         "action": null,
         "source": "Take ownership of complex technical challenges, demonstrating initiative in navigating ambiguity and championing engineering best practices and innovation.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.4856,
+        "decision": "emerging"
       },
       {
         "noun": "Engineering Best Practices",
@@ -497,7 +657,11 @@
         "tool": null,
         "action": null,
         "source": "Take ownership of complex technical challenges, demonstrating initiative in navigating ambiguity and championing engineering best practices and innovation.",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.4812,
+        "decision": "emerging"
       },
       {
         "noun": "Python Programming",
@@ -509,7 +673,11 @@
         "tool": null,
         "action": null,
         "source": "Familiarity with tools used in our tech stack is a plus (e.g. Python, Spark, AWS, Docker, DataBricks, ONNX, MySQL, Snowflake and Airflow)",
-        "gap": false
+        "gap": false,
+        "esco_match": "Python (computer programming)",
+        "match_type": "exactMatch",
+        "confidence": 0.9837,
+        "decision": "accept"
       },
       {
         "noun": "Apache Spark",
@@ -521,7 +689,11 @@
         "tool": null,
         "action": null,
         "source": "Familiarity with tools used in our tech stack is a plus (e.g. Python, Spark, AWS, Docker, DataBricks, ONNX, MySQL, Snowflake and Airflow)",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.177,
+        "decision": "emerging"
       },
       {
         "noun": "AWS Cloud Computing",
@@ -533,7 +705,11 @@
         "tool": null,
         "action": null,
         "source": "Familiarity with tools used in our tech stack is a plus (e.g. Python, Spark, AWS, Docker, DataBricks, ONNX, MySQL, Snowflake and Airflow)",
-        "gap": false
+        "gap": false,
+        "esco_match": "develop with cloud services",
+        "match_type": "emerging",
+        "confidence": 0.5468,
+        "decision": "review"
       },
       {
         "noun": "Docker Containerization",
@@ -545,7 +721,11 @@
         "tool": null,
         "action": null,
         "source": "Familiarity with tools used in our tech stack is a plus (e.g. Python, Spark, AWS, Docker, DataBricks, ONNX, MySQL, Snowflake and Airflow)",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.3722,
+        "decision": "emerging"
       },
       {
         "noun": "Scikit Learn Data Analysis",
@@ -557,19 +737,27 @@
         "tool": "Scikit-learn",
         "action": "Data Analysis",
         "source": "Familiarity with ML libraries like scikit-learn to quickly analyze data and prototype models that can be used in high volume distributed systems",
-        "gap": false
+        "gap": false,
+        "esco_match": "apply statistical analysis techniques",
+        "match_type": "emerging",
+        "confidence": 0.6298,
+        "decision": "review"
       },
       {
         "noun": "Software Engineering Fundamentals",
         "verb": "Apply software engineering principles",
         "esco_form": "Use software engineering fundamentals",
         "category": "K",
-        "skill_type": "Knowledge",
+        "skill_type": "Tool",
         "domain": "Software Engineering",
         "tool": null,
         "action": null,
         "source": "Solid software engineering fundamentals, including version control, testing, and writing clean, maintainable, and production-ready code",
-        "gap": false
+        "gap": false,
+        "esco_match": "utilise computer-aided software engineering tools",
+        "match_type": "closeMatch",
+        "confidence": 0.8313,
+        "decision": "accept"
       },
       {
         "noun": "Technical Communication",
@@ -581,7 +769,11 @@
         "tool": null,
         "action": null,
         "source": "Excellent technical communication skills",
-        "gap": false
+        "gap": false,
+        "esco_match": "apply technical communication skills",
+        "match_type": "exactMatch",
+        "confidence": 0.9905,
+        "decision": "accept"
       },
       {
         "noun": "Analytical Problem Solving",
@@ -593,7 +785,11 @@
         "tool": null,
         "action": null,
         "source": "Strong analytical and problem-solving skills",
-        "gap": false
+        "gap": false,
+        "esco_match": "execute analytical mathematical calculations",
+        "match_type": "closeMatch",
+        "confidence": 0.764,
+        "decision": "review"
       },
       {
         "noun": "Continuous Learning",
@@ -605,7 +801,11 @@
         "tool": null,
         "action": null,
         "source": "Committed to a process of continuous learning and spreading subject matter expertise",
-        "gap": false
+        "gap": false,
+        "esco_match": "undertake continuous professional development in fishery operations",
+        "match_type": "exactMatch",
+        "confidence": 0.9381,
+        "decision": "accept"
       }
     ]
   },
@@ -622,7 +822,11 @@
         "tool": null,
         "action": null,
         "source": "Develop, optimize, and maintain AI/LLM models, prompts, pipelines, and vector-based search",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.3171,
+        "decision": "emerging"
       },
       {
         "noun": "Prompt Engineering",
@@ -634,7 +838,11 @@
         "tool": null,
         "action": null,
         "source": "Develop, optimize, and maintain AI/LLM models, prompts, pipelines, and vector-based search",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.0734,
+        "decision": "emerging"
       },
       {
         "noun": "Pipeline Optimization",
@@ -646,7 +854,11 @@
         "tool": null,
         "action": null,
         "source": "Develop, optimize, and maintain AI/LLM models, prompts, pipelines, and vector-based search",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.3415,
+        "decision": "emerging"
       },
       {
         "noun": "Vector Search Systems",
@@ -658,7 +870,11 @@
         "tool": null,
         "action": null,
         "source": "Develop, optimize, and maintain AI/LLM models, prompts, pipelines, and vector-based search",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.0151,
+        "decision": "emerging"
       },
       {
         "noun": "Model Evaluation",
@@ -670,7 +886,11 @@
         "tool": null,
         "action": null,
         "source": "Evaluate models, improve accuracy, and ensure outputs meet scientific and operational expectations",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.3998,
+        "decision": "emerging"
       },
       {
         "noun": "Model Accuracy Improvement",
@@ -682,7 +902,11 @@
         "tool": null,
         "action": null,
         "source": "Evaluate models, improve accuracy, and ensure outputs meet scientific and operational expectations",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.1538,
+        "decision": "emerging"
       },
       {
         "noun": "System Performance Optimization",
@@ -694,7 +918,11 @@
         "tool": null,
         "action": null,
         "source": "Contribute to high-level architectural decisions and ensure optimal performance, speed, and cost efficiency across AI and backend systems",
-        "gap": false
+        "gap": false,
+        "esco_match": "monitor system performance",
+        "match_type": "emerging",
+        "confidence": 0.598,
+        "decision": "review"
       },
       {
         "noun": "Software Architecture Design",
@@ -706,7 +934,11 @@
         "tool": null,
         "action": null,
         "source": "Contribute to high-level architectural decisions and ensure optimal performance, speed, and cost efficiency across AI and backend systems",
-        "gap": false
+        "gap": false,
+        "esco_match": "define software architecture",
+        "match_type": "exactMatch",
+        "confidence": 0.964,
+        "decision": "accept"
       },
       {
         "noun": "Cross-Functional Collaboration",
@@ -718,7 +950,11 @@
         "tool": null,
         "action": null,
         "source": "Collaborate closely with product, DevOps and engineering teams to deliver features with enterprise quality",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.4986,
+        "decision": "emerging"
       },
       {
         "noun": "Incident Analysis",
@@ -730,7 +966,11 @@
         "tool": null,
         "action": null,
         "source": "Participate in technical incident analysis and support root-cause investigations when needed",
-        "gap": false
+        "gap": false,
+        "esco_match": "handle cybersecurity incidents",
+        "match_type": "closeMatch",
+        "confidence": 0.7679,
+        "decision": "review"
       },
       {
         "noun": "Root Cause Analysis",
@@ -742,7 +982,11 @@
         "tool": null,
         "action": null,
         "source": "Participate in technical incident analysis and support root-cause investigations when needed",
-        "gap": false
+        "gap": false,
+        "esco_match": "root cause analysis",
+        "match_type": "exactMatch",
+        "confidence": 0.9908,
+        "decision": "accept"
       },
       {
         "noun": "Technical Communication",
@@ -754,7 +998,11 @@
         "tool": null,
         "action": null,
         "source": "Engage in technical discussions with enterprise clients",
-        "gap": false
+        "gap": false,
+        "esco_match": "apply technical communication skills",
+        "match_type": "exactMatch",
+        "confidence": 0.9387,
+        "decision": "accept"
       },
       {
         "noun": "Python Programming",
@@ -766,7 +1014,11 @@
         "tool": null,
         "action": null,
         "source": "Proficient coding skills in Python",
-        "gap": false
+        "gap": false,
+        "esco_match": "Python (computer programming)",
+        "match_type": "exactMatch",
+        "confidence": 0.9837,
+        "decision": "accept"
       },
       {
         "noun": "Large Language Models",
@@ -778,7 +1030,11 @@
         "tool": null,
         "action": null,
         "source": "Strong experience with LLMs, embeddings, vector databases, GenAI, and text-heavy AI workloads",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.0287,
+        "decision": "emerging"
       },
       {
         "noun": "Embedding Techniques",
@@ -790,7 +1046,11 @@
         "tool": null,
         "action": null,
         "source": "Strong experience with LLMs, embeddings, vector databases, GenAI, and text-heavy AI workloads",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.0598,
+        "decision": "emerging"
       },
       {
         "noun": "Vector Databases",
@@ -802,7 +1062,11 @@
         "tool": null,
         "action": null,
         "source": "Strong experience with LLMs, embeddings, vector databases, GenAI, and text-heavy AI workloads",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.1472,
+        "decision": "emerging"
       },
       {
         "noun": "Generative AI Systems",
@@ -814,7 +1078,11 @@
         "tool": null,
         "action": null,
         "source": "Strong experience with LLMs, embeddings, vector databases, GenAI, and text-heavy AI workloads",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.0159,
+        "decision": "emerging"
       },
       {
         "noun": "RAG Workflows",
@@ -826,7 +1094,11 @@
         "tool": null,
         "action": null,
         "source": "Experience with RAG or LLM-augmented workflows",
-        "gap": false
+        "gap": true,
+        "esco_match": null,
+        "match_type": "emerging",
+        "confidence": 0.1682,
+        "decision": "emerging"
       },
       {
         "noun": "Semantic Modelling",
@@ -838,7 +1110,11 @@
         "tool": null,
         "action": null,
         "source": "Familiarity with semantic modelling and structured content systems",
-        "gap": false
+        "gap": false,
+        "esco_match": "create semantic trees",
+        "match_type": "emerging",
+        "confidence": 0.5032,
+        "decision": "review"
       },
       {
         "noun": "Structured Content Systems",
@@ -850,7 +1126,11 @@
         "tool": null,
         "action": null,
         "source": "Familiarity with semantic modelling and structured content systems",
-        "gap": false
+        "gap": false,
+        "esco_match": "manage data, information and digital content",
+        "match_type": "exactMatch",
+        "confidence": 0.9259,
+        "decision": "accept"
       },
       {
         "noun": "SaaS Architecture",
@@ -862,7 +1142,11 @@
         "tool": null,
         "action": null,
         "source": "Strong understanding of SaaS architecture and performance optimization",
-        "gap": false
+        "gap": false,
+        "esco_match": "service-oriented modelling",
+        "match_type": "closeMatch",
+        "confidence": 0.7599,
+        "decision": "review"
       },
       {
         "noun": "Performance Optimization",
@@ -874,7 +1158,11 @@
         "tool": null,
         "action": null,
         "source": "Strong understanding of SaaS architecture and performance optimization",
-        "gap": false
+        "gap": false,
+        "esco_match": "optimise financial performance",
+        "match_type": "closeMatch",
+        "confidence": 0.6897,
+        "decision": "review"
       }
     ]
   }
