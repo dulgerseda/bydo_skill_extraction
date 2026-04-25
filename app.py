@@ -249,25 +249,80 @@ with tab_graph:
 
 
     with st.expander("Where does a skill appear?  · View 3 · Concept"):
-        st.markdown("<p class='view-label'>Select a skill to see its profile</p>", unsafe_allow_html=True)
-        concept = st.selectbox("Skill", [s["noun"] for s in selected_skills], key="concept_sel")
-        skill_obj = next((s for s in selected_skills if s["noun"] == concept), None)
-        if skill_obj:
+        st.markdown("<p class='view-label'>Select a skill to see its profile across all job ads</p>", unsafe_allow_html=True)
+
+        # Skill dropdown — tüm JD'lerdeki skill'ler (unique, sorted)
+        all_skill_nouns = sorted(set(s["noun"] for s in all_skills))
+        concept = st.selectbox("Skill", all_skill_nouns, key="concept_sel")
+
+        # Bu skill'in geçtiği tüm JD'leri bul
+        appears_in = []
+        for jd_id, jd_val in data.items():
+            for s in get_skills(jd_val):
+                if s["noun"] == concept:
+                    appears_in.append((jd_id, s))
+                    break
+
+        if not appears_in:
+            st.info("No data found for this skill.")
+        else:
+            # Skill objesi (ilk geçtiği yerden al)
+            skill_obj = appears_in[0][1]
+
+            # ── Metrics ──
             ca, cb, cc, cd = st.columns(4)
-            ca.metric("Category",   skill_obj["category"])
-            cb.metric("Skill type", skill_obj.get("skill_type","—"))
-            cc.metric("Domain",     skill_obj.get("domain","—"))
-            cd.metric("Decision",   skill_obj["decision"])
-            source = skill_obj.get("source","")
-            co = [s["noun"] for s in selected_skills if s.get("source")==source and s["noun"]!=concept]
-            if co:
-                st.markdown("<span style='color:#555;font-size:12px'>Co-occurs with:</span>  " + "  ".join([f"`{n}`" for n in co]), unsafe_allow_html=True)
+            for col, label, val in zip([ca, cb, cc, cd],
+                ["Category", "Skill type", "Domain", "Decision"],
+                [skill_obj["category"], skill_obj.get("skill_type","—"), skill_obj.get("domain","—"), skill_obj["decision"]]):
+                col.markdown(f'<div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:12px 16px;text-align:center"><div style="font-size:11px;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">{label}</div><div style="font-size:14px;font-family:IBM Plex Mono;color:#fff">{val}</div></div>', unsafe_allow_html=True)
+            
+            # ── Appears in ──
+            st.markdown(f"<div class='section-header'>Appears in {len(appears_in)} job ad(s)</div>", unsafe_allow_html=True)
+            jd_labels = "  ".join([f"`{jd_id.replace('_', ' ')}`" for jd_id, _ in appears_in])
+            st.markdown(jd_labels)
+
+            # ── Domain dağılımı ──
+            domains_found = [jd_val.get("domain", jd_id) if isinstance(jd_val, dict) else jd_id
+                             for jd_id, jd_val in [(jd_id, data[jd_id]) for jd_id, _ in appears_in]]
+            domain_counts = Counter(domains_found)
+            st.markdown("<div class='section-header'>Domain distribution</div>", unsafe_allow_html=True)
+            domain_str = "  ·  ".join([f"`{d}` ({n})" for d, n in domain_counts.most_common()])
+            st.markdown(domain_str)
+
+            # ── Co-occurs with ──
+            # Aynı source'u paylaşan skill'ler, tüm JD'lerde
+            co_counter = Counter()
+            total_jds = len(data)
+            for jd_id, s in appears_in:
+                source = s.get("source", "")
+                for other in get_skills(data[jd_id]):
+                    if other["noun"] != concept and other.get("source") == source:
+                        co_counter[other["noun"]] += 1
+
+            if co_counter:
+                st.markdown("<div class='section-header'>Co-occurs with (same JD source)</div>", unsafe_allow_html=True)
+                top_co = co_counter.most_common(5)
+                co_str = "  ".join([f"`{n}` ({c}×)" for n, c in top_co])
+                st.markdown(co_str)
+
+            # ── ESCO ──
             esco = skill_obj.get("esco_match")
-            conf = round(skill_obj.get("confidence",0), 2)
+            conf = round(skill_obj.get("confidence", 0), 2)
+            match_type = skill_obj.get("match_type", "—")
+            st.markdown("<div class='section-header'>ESCO</div>", unsafe_allow_html=True)
             if not skill_obj["gap"] and esco:
-                st.markdown(f"**ESCO:** `{esco}` — confidence: `{conf}`")
+                badge_color = {"exactMatch": "#4caf50", "closeMatch": "#ffb300"}.get(match_type, "#888")
+                st.markdown(
+                    f"<span style='color:{badge_color};font-family:IBM Plex Mono;font-size:13px'>{match_type}</span>"
+                    f"  `{esco}`  · conf: `{conf}`",
+                    unsafe_allow_html=True
+                )
             else:
-                st.markdown(f"**ESCO:** no match → **emerging skill** (conf: `{conf}`)")
+                st.markdown(
+                    f"<span style='color:#ff5252;font-family:IBM Plex Mono;font-size:13px'>emerging</span>"
+                    f"  — no ESCO equivalent · conf: `{conf}`",
+                    unsafe_allow_html=True
+                )
 
     # ── SKILL TABLE ──
     st.markdown("<br>", unsafe_allow_html=True)

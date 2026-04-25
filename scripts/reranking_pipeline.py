@@ -5,15 +5,15 @@ RERANKING PIPELINE — BYDO Project
 Reads all JSON files from normalized_answers/
 Runs semantic search + cross-encoder reranking per skill
 Adds: esco_match, match_type, confidence, decision, gap
-Saves each result to results/<JD_name>.json
+Saves each result to results/<JD_name>_<TIMESTAMP>.json
 =============================================================
 """
-
 
 import json
 import math
 import numpy as np
 from pathlib import Path
+from datetime import datetime
 from sentence_transformers import SentenceTransformer, CrossEncoder
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -26,6 +26,8 @@ OUTPUT_DIR      = Path("results")
 
 BI_ENCODER_MODEL    = "all-MiniLM-L6-v2"
 CROSS_ENCODER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+
+TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
 
 def load_index():
     embeddings = np.load(EMBEDDINGS_PATH)
@@ -60,7 +62,6 @@ def normalize_score(score):
     return round(1 / (1 + math.exp(-score * 0.5)), 4)
 
 def make_match_type(confidence):
-    """Hocanın Neo4j şemasına uygun match tipi."""
     if confidence >= 0.85:
         return "exactMatch"
     elif confidence >= 0.65:
@@ -69,7 +70,6 @@ def make_match_type(confidence):
         return "emerging"
 
 def make_decision(confidence):
-    """Hocanın threshold mantığına göre karar ver."""
     if confidence >= 0.8:
         return "accept"
     elif confidence >= 0.5:
@@ -85,11 +85,22 @@ if __name__ == "__main__":
     cross_encoder = CrossEncoder(CROSS_ENCODER_MODEL)
     print(f"ESCO index loaded: {embeddings.shape[0]} records\n")
 
-    json_files = sorted(INPUT_DIR.glob("*.json"))
+    # just take the timesemped files for this run, if none found take the latest ones
+    json_files = sorted(INPUT_DIR.glob(f"*_{TIMESTAMP}.json"))
+
+    # if you don find the timestamped files, take the latest ones (in case you forgot to timestamp or want to re-run with same input)
     if not json_files:
-        raise FileNotFoundError(f"No JSON files found in {INPUT_DIR}")
+        all_files = sorted(INPUT_DIR.glob("*.json"))
+        if not all_files:
+            raise FileNotFoundError(f"No JSON files found in {INPUT_DIR}")
+        # En son timestamp'e göre grupla
+        latest_ts = "_".join(all_files[-1].stem.split("_")[-2:])
+        json_files = sorted(INPUT_DIR.glob(f"*_{latest_ts}.json"))
+        print(f"Using latest timestamp: {latest_ts}")
 
     for input_path in json_files:
+        # stem example: JD_04_DataEngineer_20260425_183000
+        # timestamp already there just add to output name
         output_path = OUTPUT_DIR / input_path.name
 
         with open(input_path, "r", encoding="utf-8") as f:

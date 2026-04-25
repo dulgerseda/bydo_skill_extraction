@@ -1,0 +1,223 @@
+{
+  "JD_09_AIEngineer": {
+    "domain": "AI Engineering",
+    "skills": [
+      {
+        "noun": "AI Workflow Development",
+        "verb": "Develop AI workflows",
+        "esco_form": "Develop AI workflow processes",
+        "category": "OS",
+        "skill_type": "Methodology",
+        "domain": "AI Engineering",
+        "tool": null,
+        "action": null,
+        "source": "Develop and refine AI workflows for generating print-ready label backgrounds based on user notes and product specifications",
+        "gap": false
+      },
+      {
+        "noun": "AI Workflow Optimization",
+        "verb": "Refine AI workflows",
+        "esco_form": "Optimize AI workflow processes",
+        "category": "OS",
+        "skill_type": "Methodology",
+        "domain": "AI Engineering",
+        "tool": null,
+        "action": null,
+        "source": "Develop and refine AI workflows for generating print-ready label backgrounds based on user notes and product specifications",
+        "gap": false
+      },
+      {
+        "noun": "Prompt Engineering",
+        "verb": "Design and optimize prompts",
+        "esco_form": "Apply prompt engineering techniques",
+        "category": "K",
+        "skill_type": "Tool",
+        "domain": "LLM Engineering",
+        "tool": null,
+        "action": null,
+        "source": "Design and optimize prompts to ensure generated images meet bleed, trim, and safe zone requirements for various label formats",
+        "gap": false
+      },
+      {
+        "noun": "Print Format Compliance",
+        "verb": "Ensure print format compliance",
+        "esco_form": "Ensure compliance with print format requirements",
+        "category": "OS",
+        "skill_type": "Methodology",
+        "domain": "Print Production",
+        "tool": null,
+        "action": null,
+        "source": "Design and optimize prompts to ensure generated images meet bleed, trim, and safe zone requirements for various label formats",
+        "gap": false
+      },
+      {
+        "noun": "AI Tool Evaluation",
+        "verb": "Evaluate AI tools",
+        "esco_form": "Evaluate AI tools and models",
+        "category": "OS",
+        "skill_type": "Methodology",
+        "domain": "AI Engineering",
+        "tool": null,
+        "action": null,
+        "source": "Evaluate and recommend suitable AI tools and models, such as Google AI Studio's imagen4 or alternatives, for high-quality image generation",
+        "gap": false
+      },
+      {
+        "noun": "AI Solution Recommendation",
+        "verb": "Recommend AI solutions",
+        "esco_form": "Recommend AI-based solutions",
+        "category": "OS",
+        "skill_type": "Methodology",
+        "domain": "AI Engineering",
+        "tool": null,
+        "action": null,
+        "source": "Evaluate and recommend suitable AI tools and models, such as Google AI Studio's imagen4 or alternatives, for high-quality image generation",
+        "gap": false
+      },
+      {
+        "noun": "AI Image Generation",
+        "verb": "Generate images using AI",
+        "esco_form": "Apply AI image generation techniques",
+        "category": "K",
+        "skill_type": "Knowledge",
+        "domain": "Generative AI",
+        "tool": null,
+        "action": null,
+        "source": "Proven experience in AI image generation, particularly for print or physical product applications",
+        "gap": false
+      },
+      {
+        "noun": "Print Production Standards",
+        "verb": "Apply print production standards",
+        "esco_form": "Apply print production standards",
+        "category": "K",
+        "skill_type": "Knowledge",
+        "domain": "Print Production",
+        "tool": null,
+        "action": null,
+        "source": "Familiarity with print production standards, including bleed, trim, and safe zones",
+        "gap": false
+      },
+      {
+        "noun": "Google AI Studio",
+        "verb": "Use Google AI Studio",
+        "esco_form": "Use Google AI Studio for AI tasks",
+        "category": "K",
+        "skill_type": "Tool",
+        "domain": "AI Tools",
+        "tool": null,
+        "action": null,
+        "source": "Experience with Google AI Studio, imagen4, or similar AI image generation tools",
+        "gap": false
+      },
+      {
+        "noun": "Imagen4 Model Usage",
+        "verb": "Use imagen4 model",
+        "esco_form": "Use imagen4 for image generation",
+        "category": "K",
+        "skill_type": "Tool",
+        "domain": "AI Tools",
+        "tool": null,
+        "action": null,
+        "source": "Experience with Google AI Studio, imagen4, or similar AI image generation tools",
+        "gap": false
+      },
+      {
+        "noun": "Workflow Design",
+        "verb": "Design workflows",
+        "esco_form": "Design workflow processes",
+        "category": "K",
+        "skill_type": "Knowledge",
+        "domain": "AI Engineering",
+        "tool": null,
+        "action": null,
+        "source": "Strong knowledge of prompt engineering and workflow design for generative AI models",
+        "gap": false
+      },
+      {
+        "noun": "Stakeholder Collaboration",
+        "verb": "Collaborate with stakeholders",
+        "esco_form": "Collaborate with stakeholders",
+        "category": "SF",
+        "skill_type": "Soft Skill",
+        "domain": "Soft Skills",
+        "tool": null,
+        "action": null,
+        "source": "Collaborate with stakeholders to understand requirements and iterate on workflow improvements",
+        "gap": false
+      },
+      {
+        "noun": "Process Documentation",
+        "verb": "Document processes",
+        "esco_form": "Document operational processes",
+        "category": "OS",
+        "skill_type": "Methodology",
+        "domain": "Process Management",
+        "tool": null,
+        "action": null,
+        "source": "Document processes and provide guidance for future enhancements",
+        "gap": false
+      },
+      {
+        "noun": "Process Guidance",
+        "verb": "Provide process guidance",
+        "esco_form": "Provide guidance on process improvements",
+        "category": "OS",
+        "skill_type": "Methodology",
+        "domain": "Process Management",
+        "tool": null,
+        "action": null,
+        "source": "Document processes and provide guidance for future enhancements",
+        "gap": false
+      },
+      {
+        "noun": "Solution Evaluation",
+        "verb": "Evaluate solutions",
+        "esco_form": "Evaluate technical solutions",
+        "category": "OS",
+        "skill_type": "Methodology",
+        "domain": "AI Engineering",
+        "tool": null,
+        "action": null,
+        "source": "Ability to recommend and evaluate AI solutions for specific production needs",
+        "gap": false
+      },
+      {
+        "noun": "Detail Orientation",
+        "verb": "Maintain attention to detail",
+        "esco_form": "Apply attention to detail",
+        "category": "SF",
+        "skill_type": "Soft Skill",
+        "domain": "Soft Skills",
+        "tool": null,
+        "action": null,
+        "source": "Detail-oriented with a focus on delivering consistent, high-quality outputs",
+        "gap": false
+      },
+      {
+        "noun": "Problem Solving",
+        "verb": "Solve problems",
+        "esco_form": "Apply problem-solving skills",
+        "category": "SF",
+        "skill_type": "Soft Skill",
+        "domain": "Soft Skills",
+        "tool": null,
+        "action": null,
+        "source": "Excellent problem-solving and communication skills",
+        "gap": false
+      },
+      {
+        "noun": "Communication Skills",
+        "verb": "Communicate effectively",
+        "esco_form": "Apply communication skills",
+        "category": "SF",
+        "skill_type": "Soft Skill",
+        "domain": "Soft Skills",
+        "tool": null,
+        "action": null,
+        "source": "Excellent problem-solving and communication skills",
+        "gap": false
+      }
+    ]
+  }
+}

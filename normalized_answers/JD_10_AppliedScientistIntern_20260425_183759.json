@@ -1,0 +1,211 @@
+{
+  "JD_10_AppliedScientistIntern": {
+    "domain": "Machine Learning",
+    "skills": [
+      {
+        "noun": "Model Development Lifecycle",
+        "verb": "Develop and manage model lifecycle",
+        "esco_form": "Manage machine learning model lifecycle",
+        "category": "OS",
+        "skill_type": "Methodology",
+        "domain": "Machine Learning",
+        "tool": null,
+        "action": null,
+        "source": "Experiment and Develop: You can be involved in the entire model development lifecycle, building, testing, and delivering high-quality solutions.",
+        "gap": false
+      },
+      {
+        "noun": "Cross-Functional Collaboration",
+        "verb": "Collaborate across teams",
+        "esco_form": "Work in cross-functional teams",
+        "category": "SF",
+        "skill_type": "Soft Skill",
+        "domain": "Soft Skills",
+        "tool": null,
+        "action": null,
+        "source": "Collaborate: Working on a collaborative cross-functional team, you will learn from and partner with colleagues across the globe.",
+        "gap": false
+      },
+      {
+        "noun": "Innovation Practices",
+        "verb": "Apply innovative approaches",
+        "esco_form": "Apply innovative problem-solving approaches",
+        "category": "OS",
+        "skill_type": "Methodology",
+        "domain": "Innovation",
+        "tool": null,
+        "action": null,
+        "source": "Innovate: You will have the opportunity to try new approaches and learn new technologies.",
+        "gap": false
+      },
+      {
+        "noun": "Problem Solving",
+        "verb": "Solve real-world problems",
+        "esco_form": "Solve real-world problems",
+        "category": "SF",
+        "skill_type": "Soft Skill",
+        "domain": "Soft Skills",
+        "tool": null,
+        "action": null,
+        "source": "You will contribute ideas and work on solving real-world challenges.",
+        "gap": false
+      },
+      {
+        "noun": "Natural Language Processing",
+        "verb": "Apply NLP techniques",
+        "esco_form": "Apply natural language processing techniques",
+        "category": "K",
+        "skill_type": "Knowledge",
+        "domain": "Natural Language Processing",
+        "tool": null,
+        "action": null,
+        "source": "Have an understanding and experience with Natural Language Processing, and/or Machine Learning methods including Large Language Models.",
+        "gap": false
+      },
+      {
+        "noun": "Machine Learning",
+        "verb": "Apply machine learning methods",
+        "esco_form": "Apply machine learning techniques",
+        "category": "K",
+        "skill_type": "Knowledge",
+        "domain": "Machine Learning",
+        "tool": null,
+        "action": null,
+        "source": "Have an understanding and experience with Natural Language Processing, and/or Machine Learning methods including Large Language Models.",
+        "gap": false
+      },
+      {
+        "noun": "Large Language Models",
+        "verb": "Work with large language models",
+        "esco_form": "Apply large language models",
+        "category": "K",
+        "skill_type": "Knowledge",
+        "domain": "Machine Learning",
+        "tool": null,
+        "action": null,
+        "source": "Have an understanding and experience with Natural Language Processing, and/or Machine Learning methods including Large Language Models.",
+        "gap": false
+      },
+      {
+        "noun": "Machine Learning Experimentation",
+        "verb": "Create and evaluate ML experiments",
+        "esco_form": "Design and evaluate machine learning experiments",
+        "category": "OS",
+        "skill_type": "Methodology",
+        "domain": "Machine Learning",
+        "tool": null,
+        "action": null,
+        "source": "Have experience creating and evaluating experiments related to Machine Learning or Large Language Models.",
+        "gap": false
+      },
+      {
+        "noun": "Python Programming",
+        "verb": "Program in Python",
+        "esco_form": "Develop software using Python",
+        "category": "K",
+        "skill_type": "Tool",
+        "domain": "Software Engineering",
+        "tool": null,
+        "action": null,
+        "source": "Have proficiency in implementing solutions using Python, DL/ML/NLP frameworks, and relevant tools.",
+        "gap": false
+      },
+      {
+        "noun": "Machine Learning Frameworks",
+        "verb": "Use ML frameworks",
+        "esco_form": "Apply machine learning frameworks",
+        "category": "K",
+        "skill_type": "Tool",
+        "domain": "Machine Learning",
+        "tool": null,
+        "action": null,
+        "source": "Have proficiency in implementing solutions using Python, DL/ML/NLP frameworks, and relevant tools.",
+        "gap": false
+      },
+      {
+        "noun": "GitHub Version Control",
+        "verb": "Manage code using GitHub",
+        "esco_form": "Use version control systems for code management",
+        "category": "K",
+        "skill_type": "Tool",
+        "domain": "Software Engineering",
+        "tool": null,
+        "action": null,
+        "source": "Have experience in using code collaboration and versioning systems such as GitHub.",
+        "gap": false
+      },
+      {
+        "noun": "Cloud Computing Platforms",
+        "verb": "Use cloud platforms",
+        "esco_form": "Utilise cloud computing platforms",
+        "category": "K",
+        "skill_type": "Tool",
+        "domain": "Cloud Computing",
+        "tool": null,
+        "action": null,
+        "source": "Have familiarity with cloud tools such as Amazon AWS, MS Azure, or Google Cloud.",
+        "gap": false
+      },
+      {
+        "noun": "Data Cleaning and Processing",
+        "verb": "Clean and process data",
+        "esco_form": "Perform data cleaning and processing",
+        "category": "OS",
+        "skill_type": "Methodology",
+        "domain": "Data Engineering",
+        "tool": null,
+        "action": null,
+        "source": "Are comfortable working with unstructured datasets and are knowledgeable about tools and techniques for data cleaning and processing.",
+        "gap": false
+      },
+      {
+        "noun": "Unstructured Data Handling",
+        "verb": "Work with unstructured data",
+        "esco_form": "Handle unstructured datasets",
+        "category": "OS",
+        "skill_type": "Methodology",
+        "domain": "Data Engineering",
+        "tool": null,
+        "action": null,
+        "source": "Are comfortable working with unstructured datasets and are knowledgeable about tools and techniques for data cleaning and processing.",
+        "gap": false
+      },
+      {
+        "noun": "Data-Driven Decision Making",
+        "verb": "Make data-driven decisions",
+        "esco_form": "Apply data-driven decision-making",
+        "category": "SF",
+        "skill_type": "Soft Skill",
+        "domain": "Soft Skills",
+        "tool": null,
+        "action": null,
+        "source": "Have a data-driven problem-solving and decision-making mindset.",
+        "gap": false
+      },
+      {
+        "noun": "Communication Skills",
+        "verb": "Communicate effectively",
+        "esco_form": "Apply effective communication skills",
+        "category": "SF",
+        "skill_type": "Soft Skill",
+        "domain": "Soft Skills",
+        "tool": null,
+        "action": null,
+        "source": "Have good communication skills and the ability to work collaboratively as part of a team.",
+        "gap": false
+      },
+      {
+        "noun": "Team Collaboration",
+        "verb": "Work collaboratively in teams",
+        "esco_form": "Collaborate effectively in teams",
+        "category": "SF",
+        "skill_type": "Soft Skill",
+        "domain": "Soft Skills",
+        "tool": null,
+        "action": null,
+        "source": "Have good communication skills and the ability to work collaboratively as part of a team.",
+        "gap": false
+      }
+    ]
+  }
+}

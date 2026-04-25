@@ -1,9 +1,12 @@
 import json
 from pathlib import Path
 from copy import deepcopy
+from datetime import datetime
 
 INPUT_DIR  = Path("answers")
 OUTPUT_DIR = Path("normalized_answers")
+
+TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
 
 
 def normalize_skill_type(skill: dict) -> str:
@@ -74,7 +77,9 @@ def main():
         raise FileNotFoundError(f"No JSON files found in {INPUT_DIR}")
 
     for input_path in json_files:
-        output_path = OUTPUT_DIR / input_path.name
+        stem = input_path.stem  # e.g. JD_04_DataEngineer
+        output_filename = f"{stem}_{TIMESTAMP}.json"
+        output_path = OUTPUT_DIR / output_filename
         normalize_file(input_path, output_path)
 
     print(f"\nDone! {len(json_files)} file(s) normalized.")
