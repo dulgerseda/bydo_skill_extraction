@@ -2,86 +2,82 @@ import json
 from pathlib import Path
 from copy import deepcopy
 
-
-INPUT_PATH = Path("answers/answers.json")
-OUTPUT_PATH = Path("answers/normalized_answers.json")
+INPUT_DIR  = Path("answers")
+OUTPUT_DIR = Path("normalized_answers")
 
 
 def normalize_skill_type(skill: dict) -> str:
     """
-    Safely normalizes skill categories without losing metadata like 'gap'.
+    Safety-net normalizer — prompt_v10 already handles correct categorization.
+    This function only corrects malformed or edge-case outputs.
+
+    Rules (aligned with prompt_v10):
+    - SF  → Soft Skill
+    - IPS → Tool (only if tool + action both present, else demote to OS)
+    - K   → Tool (if noun signals a named platform/language) else Knowledge
+    - OS  → Methodology
     """
-    # 1. Sanitize inputs
-    noun = str(skill.get("noun", "")).strip().lower()
-    verb = str(skill.get("verb", "")).strip().lower()
+    noun     = str(skill.get("noun", "")).strip().lower()
     category = str(skill.get("category", "")).strip()
-    
-    # 2. Ensure 'gap' key exists to prevent Streamlit KeyError
+    tool     = skill.get("tool")
+    action   = skill.get("action")
+
     if "gap" not in skill:
         skill["gap"] = False
 
-    # 3. Aggressive Overrides for Core Technologies
-    core_techs = ["python", "sql", "nosql", "java", "r language", "c++", "git", "excel"]
-    if any(tech in noun for tech in core_techs):
-        # Force generic terms to Knowledge (K)
-        if len(noun.split()) <= 2 or any(w in noun for w in ["programming", "scripting", "language"]):
-            category = "K"
-            skill["category"] = "K"
-
-    # 4. Return mappings based on category
     if category == "SF":
         return "Soft Skill"
-        
+
+    if category == "IPS":
+        if tool and action:
+            return "Tool"
+        skill["category"] = "OS"
+        category = "OS"
+
     if category == "K":
-        tool_keywords = core_techs + ["docker", "aws", "database", "spark", "pytorch"]
-        if skill.get("tool") or any(t in noun for t in tool_keywords):
+        tool_signals = [
+            "programming", "database", "stack", "framework", "library",
+            "platform", "cloud", "containerization", "version control",
+            "monitoring", "tool", "engine", "sdk", "api"
+        ]
+        if any(sig in noun for sig in tool_signals):
+            return "Tool"
+        if skill.get("skill_type") == "Tool":
             return "Tool"
         return "Knowledge"
 
-    if category == "IPS":
-        if any(term in noun for term in ["development", "design", "architecture"]):
-            return "Methodology"
-        return "Tool"
-
-    # Default mapping for OS and others
-    manual_overrides = {
-        "data visualization": "Methodology",
-        "machine learning": "Methodology",
-        "ai llm model development": "Methodology"
-    }
-    
-    if noun in manual_overrides:
-        return manual_overrides[noun]
+    if category == "OS":
+        return "Methodology"
 
     return "Methodology"
 
 
+def normalize_file(input_path: Path, output_path: Path):
+    with input_path.open("r", encoding="utf-8") as f:
+        raw_data = json.load(f)
 
-def normalize_answers(data: dict) -> dict:
-    normalized = deepcopy(data)
-
+    normalized = deepcopy(raw_data)
     for jd_key, jd_value in normalized.items():
-        skills = jd_value.get("skills", [])
-        for skill in skills:
+        for skill in jd_value.get("skills", []):
             skill["skill_type"] = normalize_skill_type(skill)
 
-    return normalized
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("w", encoding="utf-8") as f:
+        json.dump(normalized, f, indent=2, ensure_ascii=False)
+
+    print(f"✓ {input_path.name} → {output_path}")
 
 
 def main():
-    if not INPUT_PATH.exists():
-        raise FileNotFoundError(f"Input file not found: {INPUT_PATH}")
+    json_files = sorted(INPUT_DIR.glob("*.json"))
+    if not json_files:
+        raise FileNotFoundError(f"No JSON files found in {INPUT_DIR}")
 
-    with INPUT_PATH.open("r", encoding="utf-8") as f:
-        raw_data = json.load(f)
+    for input_path in json_files:
+        output_path = OUTPUT_DIR / input_path.name
+        normalize_file(input_path, output_path)
 
-    normalized_data = normalize_answers(raw_data)
-
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with OUTPUT_PATH.open("w", encoding="utf-8") as f:
-        json.dump(normalized_data, f, indent=2, ensure_ascii=False)
-
-    print(f"Normalized answers written to: {OUTPUT_PATH}")
+    print(f"\nDone! {len(json_files)} file(s) normalized.")
 
 
 if __name__ == "__main__":

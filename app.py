@@ -34,14 +34,16 @@ h1, h2, h3 { font-family: 'IBM Plex Mono', monospace; color: #ffffff; }
 """, unsafe_allow_html=True)
 
 
-OUTPUT_PATH = Path("results/output_v10.json")
+# YENİ
+RESULTS_DIR = Path("results")
 
 @st.cache_data
 def load_output():
-    if not OUTPUT_PATH.exists():
-        return None
-    with open(OUTPUT_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+    data = {}
+    for f in sorted(RESULTS_DIR.glob("*.json")):
+        with open(f, "r", encoding="utf-8") as fp:
+            data.update(json.load(fp))
+    return data if data else None
 
 data = load_output()
 

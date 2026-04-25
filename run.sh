@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# answers_v10.json → normalized_answers_v10.json
+# answers/ → normalized_answers/
 echo "🔄 Step 1: Normalizing answers..."
-python3 scripts/normalize_answers_v10.py
+python3 scripts/normalize_answers.py
 
-# normalized_answers_v10.json → results/output_v10.json
+# normalized_answers/ → results/
 echo "🔄 Step 2: Running reranking pipeline..."
 python3 scripts/reranking_pipeline.py
 
-# results/output_v10.json → Streamlit UI
+# results/ → Streamlit UI
 echo "🚀 Step 3: Starting Streamlit..."
 streamlit run app.py
 

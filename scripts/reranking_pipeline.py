@@ -2,10 +2,10 @@
 =============================================================
 RERANKING PIPELINE — BYDO Project
 =============================================================
-Reads answers.json (with domain wrapper + skill_type + domain)
+Reads all JSON files from normalized_answers/
 Runs semantic search + cross-encoder reranking per skill
 Adds: esco_match, match_type, confidence, decision, gap
-Saves to results/output.json
+Saves each result to results/<JD_name>.json
 =============================================================
 """
 
@@ -21,8 +21,8 @@ DATA_DIR        = Path("data/processed")
 EMBEDDINGS_PATH = DATA_DIR / "esco_embeddings.npy"
 LABELS_PATH     = DATA_DIR / "esco_labels.json"
 ESCO_JSON       = DATA_DIR / "esco_skill_dictionary.json"
-ANSWERS_PATH = Path("answers/normalized_answers_v10.json")
-OUTPUT_PATH     = Path("results/output_v10.json")
+INPUT_DIR       = Path("normalized_answers")
+OUTPUT_DIR      = Path("results")
 
 BI_ENCODER_MODEL    = "all-MiniLM-L6-v2"
 CROSS_ENCODER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
@@ -85,73 +85,80 @@ if __name__ == "__main__":
     cross_encoder = CrossEncoder(CROSS_ENCODER_MODEL)
     print(f"ESCO index loaded: {embeddings.shape[0]} records\n")
 
-    with open(ANSWERS_PATH, "r", encoding="utf-8") as f:
-        answers = json.load(f)
+    json_files = sorted(INPUT_DIR.glob("*.json"))
+    if not json_files:
+        raise FileNotFoundError(f"No JSON files found in {INPUT_DIR}")
 
-    output = {}
+    for input_path in json_files:
+        output_path = OUTPUT_DIR / input_path.name
 
-    for job_id, job_data in answers.items():
-        if isinstance(job_data, list):
-            skills     = job_data
-            job_domain = "Unknown"
-        else:
-            skills     = job_data["skills"]
-            job_domain = job_data.get("domain", "Unknown")
+        with open(input_path, "r", encoding="utf-8") as f:
+            answers = json.load(f)
+
+        output = {}
+
+        for job_id, job_data in answers.items():
+            if isinstance(job_data, list):
+                skills     = job_data
+                job_domain = "Unknown"
+            else:
+                skills     = job_data["skills"]
+                job_domain = job_data.get("domain", "Unknown")
+
+            print(f"\n{'='*60}")
+            print(f"  {job_id}  |  domain: {job_domain}  |  {len(skills)} skills")
+            print(f"{'='*60}")
+
+            enriched_skills = []
+
+            for skill in skills:
+                noun      = skill["noun"]
+                esco_form = skill.get("esco_form", noun)
+
+                print(f"  -> {noun}")
+
+                candidates = semantic_search(noun, embeddings, labels, bi_encoder, top_k=10)
+                reranked   = rerank(noun, esco_form, candidates, esco_data, cross_encoder)
+
+                top_score, top_label = reranked[0]
+                confidence = normalize_score(top_score)
+                match_type = make_match_type(confidence)
+                decision   = make_decision(confidence)
+                gap        = decision == "emerging"
+
+                enriched = {
+                    **skill,
+                    "esco_match": top_label if not gap else None,
+                    "match_type": match_type,
+                    "confidence": confidence,
+                    "decision":   decision,
+                    "gap":        gap
+                }
+                enriched_skills.append(enriched)
+
+                print(f"     confidence: {confidence}  match_type: {match_type}  decision: {decision}  gap: {gap}")
+
+            output[job_id] = {
+                "domain": job_domain,
+                "skills": enriched_skills
+            }
+
+        OUTPUT_DIR.mkdir(exist_ok=True)
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(output, f, indent=2, ensure_ascii=False)
+
+        print(f"\nDone! -> {output_path}")
 
         print(f"\n{'='*60}")
-        print(f"  {job_id}  |  domain: {job_domain}  |  {len(skills)} skills")
+        print(f"  SUMMARY")
         print(f"{'='*60}")
+        for job_id, job_data in output.items():
+            skills   = job_data["skills"]
+            accept   = sum(1 for s in skills if s["decision"] == "accept")
+            review   = sum(1 for s in skills if s["decision"] == "review")
+            emerging = sum(1 for s in skills if s["decision"] == "emerging")
+            exact    = sum(1 for s in skills if s["match_type"] == "exactMatch")
+            close    = sum(1 for s in skills if s["match_type"] == "closeMatch")
+            print(f"  {job_id[:35]:<35} accept:{accept}  review:{review}  emerging:{emerging}  |  exact:{exact}  close:{close}")
 
-        enriched_skills = []
-
-        for skill in skills:
-            noun      = skill["noun"]
-            esco_form = skill.get("esco_form", noun)
-
-            print(f"  -> {noun}")
-
-            candidates = semantic_search(noun, embeddings, labels, bi_encoder, top_k=10)
-            reranked   = rerank(noun, esco_form, candidates, esco_data, cross_encoder)
-
-            top_score, top_label = reranked[0]
-            confidence = normalize_score(top_score)
-            match_type = make_match_type(confidence)
-            decision   = make_decision(confidence)
-            gap        = decision == "emerging"
-
-            enriched = {
-                **skill,
-                "esco_match": top_label if not gap else None,
-                "match_type": match_type,
-                "confidence": confidence,
-                "decision":   decision,
-                "gap":        gap
-            }
-            enriched_skills.append(enriched)
-
-            print(f"     confidence: {confidence}  match_type: {match_type}  decision: {decision}  gap: {gap}")
-
-        output[job_id] = {
-            "domain": job_domain,
-            "skills": enriched_skills
-        }
-
-    OUTPUT_PATH.parent.mkdir(exist_ok=True)
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
-
-    print(f"\n\nDone! -> {OUTPUT_PATH}")
-
-    print(f"\n{'='*60}")
-    print(f"  SUMMARY")
-    print(f"{'='*60}")
-    for job_id, job_data in output.items():
-        skills   = job_data["skills"]
-        accept   = sum(1 for s in skills if s["decision"] == "accept")
-        review   = sum(1 for s in skills if s["decision"] == "review")
-        emerging = sum(1 for s in skills if s["decision"] == "emerging")
-        exact    = sum(1 for s in skills if s["match_type"] == "exactMatch")
-        close    = sum(1 for s in skills if s["match_type"] == "closeMatch")
-        print(f"  {job_id[:35]:<35} accept:{accept}  review:{review}  emerging:{emerging}  |  exact:{exact}  close:{close}")
-
-# streamlit run app.py         
+# streamlit run app.py
